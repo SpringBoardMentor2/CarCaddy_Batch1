@@ -1,15 +1,22 @@
 package org.infosys.model;
 
 import jakarta.persistence.*;
+
+
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
+
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "customer")
 public class Customer {
+	
+	public Customer() {}
+	public Customer(Long id) {this.id = id;}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,13 +142,5 @@ public class Customer {
 	public void setRentals(List<Rental> rentals) {
 		this.rentals = rentals;
 	}
-    
-//    @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL)
-//    @JsonIgnoreProperties("customerId")
-//    private List<Rental> bookings;
-
-	
-
-	
+   
 }
-

@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface MaintenanceRepository extends JpaRepository<Maintenance, Long> {
 
-	Optional<Maintenance> findTopByCarOrderByDateDesc(Car car);
+    Optional<Maintenance> findTopByCarOrderByDateDesc(Car car);
+
 }

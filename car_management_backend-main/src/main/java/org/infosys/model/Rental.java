@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Rental {
+	
+	public Rental() {}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,10 +54,10 @@ public class Rental {
 	@ManyToOne
 	@JoinColumn(name = "carId")
 	@JsonIgnoreProperties("bookings")
-	private Car car;
-
-	@ManyToOne
-	@JoinColumn(name = "id")
+    private Car car;
+    
+    @ManyToOne
+    @JoinColumn(name="id")
 	@JsonIgnoreProperties("rentals")
 	private Customer customer;
 

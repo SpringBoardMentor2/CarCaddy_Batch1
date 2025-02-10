@@ -7,7 +7,7 @@
 <body class="font-sans flex flex-col min-h-screen bg-gray-100">
 
     <!-- Navigation Bar -->
-    <div th:insert="~{navbar}"></div>
+    <div th:insert="~{navbar5}"></div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8 flex-grow">
@@ -17,35 +17,35 @@
             <!-- Form for Booking -->
             <form th:action="@{/rentals/book}" method="post" th:object="${rentalRequest}">
                 <!-- Customer ID -->
-                <div th:if="${#fields.hasErrors('customerId')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <div th:if="${#fields.hasErrors('customer')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <strong class="font-bold">Error!</strong>
-                    <span class="block sm:inline" th:text="${#fields.getFieldError('customerId').defaultMessage}">Invalid Customer ID!</span>
+                    <span class="block sm:inline" th:text="${#fields.getFieldError('customer').defaultMessage}">Invalid Customer ID!</span>
                 </div>
                 <div class="mb-4">
-                    <label for="customerId" class="block text-gray-700 text-sm font-bold mb-2">Customer ID:</label>
-                    <input type="number" id="customerId" th:field="*{customerId}" required
-                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <label for="customer" class="block text-gray-700 text-sm font-bold mb-2">Customer ID:</label>
+                    <input type="number" id="customer" th:field="*{customer.id}" required
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
                 </div>
 
                 <!-- Car ID -->
-                <div th:if="${#fields.hasErrors('carId')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <div th:if="${#fields.hasErrors('car')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <strong class="font-bold">Error!</strong>
-                    <span class="block sm:inline" th:text="${#fields.getFieldError('carId').defaultMessage}">Invalid Car ID!</span>
+                    <span class="block sm:inline" th:text="${#fields.getFieldError('car').defaultMessage}">Invalid Car ID!</span>
                 </div>
                 <div class="mb-4">
-                    <label for="carId" class="block text-gray-700 text-sm font-bold mb-2">Car ID:</label>
-                    <input type="number" id="carId" th:field="*{carId}" required
-                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <label for="car" class="block text-gray-700 text-sm font-bold mb-2">Car ID:</label>
+                    <input type="number" id="car" th:field="*{car.carId}" required
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
                 </div>
 
                 <!-- Employee ID -->
-                <div th:if="${#fields.hasErrors('employeeId')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <div th:if="${#fields.hasErrors('employee')}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <strong class="font-bold">Error!</strong>
-                    <span class="block sm:inline" th:text="${#fields.getFieldError('employeeId').defaultMessage}">Invalid Employee ID!</span>
+                    <span class="block sm:inline" th:text="${#fields.getFieldError('employee').defaultMessage}">Invalid Employee ID!</span>
                 </div>
                 <div class="mb-4">
-                    <label for="employeeId" class="block text-gray-700 text-sm font-bold mb-2">Employee ID:</label>
-                    <input type="number" id="employeeId" th:field="*{employeeId}" required
+                    <label for="employee" class="block text-gray-700 text-sm font-bold mb-2">Employee ID:</label>
+                    <input type="number" id="employee" th:field="*{employee.employeeId}" required
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
 
@@ -110,7 +110,7 @@
         </div>
     </main>
 
-    <div th:insert="~{footer}"></div>
+    <div th:insert="~{footer5}"></div>
 
 </body>
 </html>

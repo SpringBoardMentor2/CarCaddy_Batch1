@@ -27,7 +27,7 @@ public class MaintenanceService {
     @Autowired
     private EmailService emailService;
 
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0 5 * * ?")
     public void checkMaintenanceDue() {
         // Fetch all cars from the database
         List<Car> cars = carRepository.findAll();
@@ -66,6 +66,7 @@ public class MaintenanceService {
         System.out.println("Maintenance notification sent for car: " + car.getRegistrationNumber());
     }
     
+
 
     public List<Maintenance> getAllMaintenance() {
         return maintenanceRepository.findAll();

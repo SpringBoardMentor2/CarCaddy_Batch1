@@ -2,6 +2,9 @@ package com.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 public class Maintenance {
 
 	private Long maintenanceId;
@@ -10,6 +13,7 @@ public class Maintenance {
 	
 	private String maintenanceType;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
 	private Double maintenanceCost;
@@ -73,5 +77,15 @@ public class Maintenance {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "Maintenance [maintenanceId=" + maintenanceId + ", car=" + car + ", maintenanceType=" + maintenanceType
+				+ ", date=" + date + ", maintenanceCost=" + maintenanceCost + ", maintenanceStatus=" + maintenanceStatus
+				+ ", description=" + description + "]";
+	}
+	
+	
+	
 
 }

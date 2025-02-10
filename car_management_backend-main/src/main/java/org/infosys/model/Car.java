@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -19,12 +20,19 @@ import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
 
+
+
+
 @Entity
 public class Car {
+	
+	public Car() {}
+	
+	public Car(Long carId) {this.carId = carId;}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int carId;
+    private Long carId;
 
     @Column(unique = true, nullable = false)
     @NotEmpty(message = "Registration number cannot be empty.")
@@ -86,23 +94,23 @@ public class Car {
     @Positive(message = "Rental rate must be a positive number.")
     private BigDecimal rentalRate;
     
-    @NotEmpty(message = "Color cannot be empty.")
+    @NotEmpty(message = "Location cannot be empty.")
     private String location;
 
     
-    @OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("bookingId")
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("car")
     private List<Rental> bookings;
 
-    @OneToMany(mappedBy = "maintenanceId", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("maintenanceId")
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("car")
     private List<Maintenance> maintenance;
 
-	public int getCarId() {
+	public Long getCarId() {
 		return carId;
 	}
 
-	public void setCarId(int carId) {
+	public void setCarId(Long carId) {
 		this.carId = carId;
 	}
 

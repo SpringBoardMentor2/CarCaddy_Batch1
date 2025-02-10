@@ -101,7 +101,12 @@
         <div class="logo">
             <img th:src="@{/images/logo.png}" alt="Car Management Logo">
         </div>
-        <h1 style="margin-right:40%">CarCarddy Rental System</h1>
+        <h1 >CarCarddy Rental System</h1>
+         <ul class="nav-links">
+            <li><a th:href="@{/admin/home}" class="home-link">Home</a></li>
+            <li><a th:href="@{/admin/profile}">My Profile</a></li>
+            
+        </ul>
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -141,7 +146,7 @@
         <a th:href="@{/customer-management/home}" class="module-box">
             Customer Management
         </a>
-        <a th:href="@{/maintenanace-management/home}" class="module-box">
+        <a th:href="@{/maintenance-management/home}" class="module-box">
             Maintenance Management
         </a>
     </div>
